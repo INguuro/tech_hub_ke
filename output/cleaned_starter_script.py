@@ -126,6 +126,15 @@ def revenue_by(rows: list[dict], field: str) -> dict[str, float]:
     return totals
 
 
+## calculating the revenue of each store(Just Because I can) 
+store_totals = revenue_by(clean_rows, "store")
+
+for store, revenue in sorted(
+    store_totals.items(),
+    key=lambda item: item[1],
+    reverse=True,
+):
+    print(f"{store}: KES {revenue:,.2f}")
 def top_n(
     totals: dict[str, float],
     n: int = 3,
